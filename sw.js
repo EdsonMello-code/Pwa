@@ -2,8 +2,8 @@ var CACHE_NAME = "static-v1";
 
 self.addEventListener("install", function (event) {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) {
-      return cache.addAll([
+    caches.open(CACHE_NAME).then(async function (cache) {
+      return await cache.addAll([
         "/",
         "./index.html",
         "./styles.css",
@@ -14,10 +14,10 @@ self.addEventListener("install", function (event) {
   );
 });
 
-self.addEventListener("activate", function activator(event) {
+self.addEventListener("activate", async function activator(event) {
   event.waitUntil(
     caches.keys().then(function (keys) {
-      return Promise.all(
+      return await Promise.all(
         keys
           .filter(function (key) {
             return key.indexOf(CACHE_NAME) !== 0;
