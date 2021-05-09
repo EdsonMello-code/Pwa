@@ -7,9 +7,8 @@ self.addEventListener("install", function (event) {
         "/",
         "/index.html",
         "/styles.css",
-        "/app.js",
+        "/main.js",
         "/manifest.js",
-        "/vendor.js",
       ]);
     })
   );
